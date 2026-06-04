@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useMemo, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
+import { Analytics } from '@vercel/analytics/react'
 import { CssBaseline, ThemeProvider, createTheme, GlobalStyles } from '@mui/material'
 
 /* ── Theme Toggle Context ───────────────────────────────────── */
@@ -80,6 +81,7 @@ function Root() {
           '@keyframes pulse': { '0%,100%': { boxShadow: '0 0 0 0 rgba(124,58,237,0.4)' }, '50%': { boxShadow: '0 0 0 8px rgba(124,58,237,0)' } },
         }} />
         <App />
+        <Analytics />
       </ThemeProvider>
     </ThemeModeContext.Provider>
   );
