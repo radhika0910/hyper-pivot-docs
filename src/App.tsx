@@ -359,7 +359,7 @@ export default function App() {
             img: { width: "100%", height: "100%", objectFit: "cover" },
           }}
         >
-          <img src={logoUrl} alt="Hyper Pivot Logo" />
+          <img src={logoUrl} alt="Hyper Pivot Logo" loading="lazy" />
         </Box>
         <Box>
           <Typography
