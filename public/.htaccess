@@ -1,0 +1,66 @@
+# Cache control headers for better performance
+<FilesMatch "\.(jpg|jpeg|png|gif|ico|css|js|woff|woff2|ttf|svg)$">
+  <IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresDefault "access plus 1 year"
+  </IfModule>
+  <IfModule mod_headers.c>
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </IfModule>
+</FilesMatch>
+
+# Cache HTML files for 1 day
+<FilesMatch "\.html$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "public, max-age=86400"
+  </IfModule>
+</FilesMatch>
+
+# Security headers
+<IfModule mod_headers.c>
+  # Prevent content type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  
+  # Prevent clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  
+  # Enable XSS protection
+  Header always set X-XSS-Protection "1; mode=block"
+  
+  # Referrer policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Feature policy / Permissions policy
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Gzip compression for text files
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json
+  AddOutputFilter DEFLATE js css svg
+</IfModule>
+
+# Rewrite rules for single page application
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Don't rewrite actual files or directories
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Rewrite all requests to index.html
+  RewriteRule ^ index.html [QSA,L]
+</IfModule>
+
+# Remove ETag headers to reduce overhead
+<IfModule mod_headers.c>
+  Header unset ETag
+  Header unset X-Powered-By
+</IfModule>
+
+# Allow cross-origin for fonts
+<FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2)$">
+  <IfModule mod_headers.c>
+    Header add Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>

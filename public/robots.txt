@@ -1,0 +1,33 @@
+# Hyper Pivot Documentation - Robots.txt
+# This file tells search engines how to crawl and index the site
+
+User-agent: *
+Allow: /
+Allow: /src/
+Allow: /assets/
+
+# Disallow private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://hyper-pivot-docs.vercel.app/sitemap.xml
+
+# Cache control
+# Note: This file should be served with Cache-Control: max-age=86400 (1 day)
