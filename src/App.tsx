@@ -95,8 +95,8 @@ export default function App() {
   const drawer = (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Toolbar sx={{ py: 3 }}>
-        <Box sx={{ width: 34, height: 34, borderRadius: 2, background: 'linear-gradient(135deg, #7C3AED, #06B6D4)', backgroundSize: '200% 200%', animation: 'gradientShift 4s ease infinite', display: 'flex', alignItems: 'center', justifyContent: 'center', mr: 2, boxShadow: '0 0 20px rgba(124,58,237,0.4)' }}>
-          <AutoAwesomeMosaicIcon sx={{ color: '#fff', fontSize: 18 }} />
+        <Box sx={{ width: 40, height: 40, borderRadius: 2, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', mr: 2, boxShadow: '0 0 20px rgba(124,58,237,0.4)', background: '#000', img: { width: '100%', height: '100%', objectFit: 'cover' } }}>
+          <img src="/public/logo.png" alt="Hyper Pivot Logo" />
         </Box>
         <Box>
           <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.5, lineHeight: 1.2 }}>Hyper Pivot</Typography>
