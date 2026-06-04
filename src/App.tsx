@@ -39,6 +39,7 @@ import {
 } from "@mui/material";
 import { PivotGrid } from "hyper-pivot";
 import React, { useState } from "react";
+import logoUrl from "./assets/logo.png";
 import { useThemeMode } from "./main";
 import { propCategories, PropCategory } from "./propData";
 
@@ -358,7 +359,7 @@ export default function App() {
             img: { width: "100%", height: "100%", objectFit: "cover" },
           }}
         >
-          <img src="/logo.png" alt="Hyper Pivot Logo" />
+          <img src={logoUrl} alt="Hyper Pivot Logo" />
         </Box>
         <Box>
           <Typography
