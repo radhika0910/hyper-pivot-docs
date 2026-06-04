@@ -27,13 +27,8 @@ export default defineConfig({
     sourcemap: true,
     // Optimize chunk size
     chunkSizeWarningLimit: 500,
-    // Enable minification
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        drop_console: false,
-      },
-    },
+    // Use esbuild for minification (default, no extra dependency needed)
+    minify: "esbuild",
   },
 
   // Server configuration
